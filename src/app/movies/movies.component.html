@@ -1,0 +1,29 @@
+<input type="text" [formControl]="search" placeholder="Search Joke" />
+<ng-container *ngIf="result$ | async as result">
+  <h3>Total Jokes: {{ result.Title }}</h3>
+  <ul>
+    <li>{{ result.Title }}</li>
+    <li>
+      {{ result.Year | yearAgo }}
+    </li>
+    <li>
+      {{ result.Actors | extractNames }}
+    </li>
+
+    <li>{{ result.Country }}</li>
+  </ul>
+</ng-container>
+<ng-container *ngIf="currencies$ | async as currency">
+  <p>{{ currency }}</p>
+</ng-container>
+
+<ng-container *ngIf="countries$ | async | lowercase as countryCode">
+  <div *ngIf="countryCode | commaSeparatedToArray as codes">
+    <div *ngFor="let item of codes">
+      <img
+        [src]="'https://flagpedia.net/data/flags/icon/36x27/' + item + '.png'"
+        alt=""
+      />
+    </div>
+  </div>
+</ng-container>
