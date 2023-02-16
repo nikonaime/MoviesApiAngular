@@ -12,9 +12,10 @@ import { API_BASE } from './tokens';
 import { ExtractNamesPipe } from './extract-names.pipe';
 import { YearAgoPipe } from './year-ago.pipe';
 import { CommaSeparatedToArrayPipe } from './comma-separated-to-array.pipe';
+import { MoviesListComponent } from './movies-list/movies-list.component';
 
 @NgModule({
-  declarations: [AppComponent, MoviesComponent, ExtractNamesPipe, YearAgoPipe, CommaSeparatedToArrayPipe],
+  declarations: [AppComponent, MoviesComponent, ExtractNamesPipe, YearAgoPipe, CommaSeparatedToArrayPipe, MoviesListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

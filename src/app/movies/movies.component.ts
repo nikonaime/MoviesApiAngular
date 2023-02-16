@@ -22,7 +22,8 @@ import { query } from '@angular/animations';
 })
 export class MoviesComponent implements OnInit {
   constructor(
-    private movieService: MovieApiService // private toastr: ToastrService
+    private movieService: MovieApiService, // private toastr: ToastrService
+    // private toastr: ToastrService
   ) {}
   search = new FormControl();
 
@@ -34,6 +35,10 @@ export class MoviesComponent implements OnInit {
     const empty: MovieSearchResponse = {};
 
     return of(empty);
+  }
+
+  addToList(movie: Movie) {
+    this.movieService.saveMovie(movie).subscribe(() => ("movie has been added"));
   }
 
   ngOnInit(): void {

@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { forkJoin, map, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { MovieSearchResponse } from './movies.model';
+import { Movie, MovieSearchResponse } from './movies.model';
 import { API_BASE } from './tokens';
 
 @Injectable({
@@ -45,5 +45,20 @@ export class MovieApiService {
   searchMovie(query: string): Observable<MovieSearchResponse> {
     console.log(query);
     return this.http.get<MovieSearchResponse>(`${this.apiBase}` + query);
+  }
+
+  getSavedMovieList() {
+    return this.http.get<MovieSearchResponse>('http://localhost:3000/movies');
+  }
+  saveMovie(movie: Movie) {
+    return this.http.post('http://localhost:3000/movies', movie);
+  }
+
+  editMovie(id: string, movie: Movie) {
+    return this.http.patch('http://localhost:3000/movies/' + id, movie);
+  }
+
+  deleteMovie(id: string) {
+    return this.http.delete('http://localhost:3000/movies/' + id);
   }
 }
