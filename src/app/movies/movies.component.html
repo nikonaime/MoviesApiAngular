@@ -1,9 +1,33 @@
 <!-- hero area start -->
 <section class="hero-area" id="home">
-  <input type="text" [formControl]="search" placeholder="Search Joke" />
-  <button routerLink="moviesList">Movies Link</button>
+  <input type="text" [formControl]="search" placeholder="Search Movie" />
+
+  <div class="portfolio-menu">
+    <ul>
+      <button routerLink="moviesList">My Movie List</button>
+    </ul>
+  </div>
+
   <ng-container *ngIf="result$ | async as result">
     <button (click)="addToList(result)">Add to list</button>
+
+    <button (click)="showReviewForm = true">Add review</button>
+    <div *ngIf="showReviewForm">
+      <label for="review">Review:</label>
+      <input type="text" name="review" [(ngModel)]="reviewText" />
+      <br />
+      <label for="rating">Rating:</label>
+      <select name="rating" [(ngModel)]="ratingValue">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <br />
+      <button (click)="addReview(result)">Add review</button>
+    </div>
+
     <div class="container">
       <div class="hero-area-slider">
         <div class="row hero-area-slide">

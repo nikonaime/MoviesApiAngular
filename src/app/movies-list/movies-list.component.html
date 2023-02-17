@@ -1,11 +1,77 @@
-<ul>
-  <li *ngFor="let movie of movieList$ | async">
-    <div>
-      {{ movie.id }}
-      {{ movie.Title }}
-      {{ movie.Year }}
+<!-- portfolio section start -->
+<section class="portfolio-area pt-60">
+  <div class="container">
+    <div class="row flexbox-center">
+      <div class="col-lg-6 text-center text-lg-left">
+        <div class="section-title">
+          <h1><i class="icofont icofont-movie"></i> Spotlight This Month</h1>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center text-lg-right">
+        <div class="portfolio-menu">
+          <ul>
+            <li routerLink="/">Back to Search</li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <button>Edit</button>
-    <button (click)="deleteMovie(movie.id)">Delete</button>
-  </li>
-</ul>
+    <hr />
+    <div class="row portfolio-item">
+      <div
+        *ngFor="let movie of movieList$ | async"
+        class="col-lg-3 col-md-4 col-sm-6 soon released"
+      >
+        <div class="single-portfolio" *ngIf="selectedMovieId !== movie.id">
+          <div class="single-portfolio-img">
+            <img [src]="movie.Poster" alt="portfolio" />
+            <a href="https://r.mtdv.me/watch?v=angular" class="popup-youtube">
+              <i class="icofont icofont-ui-play"></i>
+            </a>
+          </div>
+          <div class="portfolio-content">
+            <h2>{{ movie.Title }}</h2>
+            <div class="review">
+              <div class="author-review">
+                
+                {{ movie.review.rating | starRating}}
+              </div>
+              <h4>{{ movie.review.text }}</h4>
+            </div>
+          </div>
+        </div>
+        <input
+          type="text"
+          [value]="movie.Title"
+          #input
+          *ngIf="selectedMovieId === movie.id"
+        />
+
+        <input
+          type="text"
+          [value]="movie.review.text"
+          #inputReview
+          *ngIf="selectedMovieId === movie.id"
+        />
+
+        <button (click)="edit(movie)" *ngIf="selectedMovieId === movie.id" class="theme-btn">
+          save
+        </button>
+        <button (click)="cancelEdit()" *ngIf="selectedMovieId === movie.id" class="theme-btn">
+          cancel
+        </button>
+        <button class="theme-btn"
+          (click)="enterEdit(movie.id)"
+          *ngIf="selectedMovieId !== movie.id"
+          [disabled]="selectedMovieId"
+        >
+          Edit
+        </button>
+
+        <button (click)="deleteMovie(movie.id)" [disabled]="selectedMovieId" class="theme-btn">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- portfolio section end -->

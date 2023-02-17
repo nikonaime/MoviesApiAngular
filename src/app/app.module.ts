@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 
@@ -13,21 +13,31 @@ import { ExtractNamesPipe } from './extract-names.pipe';
 import { YearAgoPipe } from './year-ago.pipe';
 import { CommaSeparatedToArrayPipe } from './comma-separated-to-array.pipe';
 import { MoviesListComponent } from './movies-list/movies-list.component';
+import { StarRatingPipe } from './star-rating.pipe';
 
 @NgModule({
-  declarations: [AppComponent, MoviesComponent, ExtractNamesPipe, YearAgoPipe, CommaSeparatedToArrayPipe, MoviesListComponent],
+  declarations: [
+    AppComponent,
+    MoviesComponent,
+    ExtractNamesPipe,
+    YearAgoPipe,
+    CommaSeparatedToArrayPipe,
+    MoviesListComponent,
+    StarRatingPipe,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [
     {
       provide: API_BASE,
       useValue: environment.apiBase,
     },
-    MovieApiService
+    MovieApiService,
   ],
   bootstrap: [AppComponent],
 })
