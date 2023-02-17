@@ -1,33 +1,34 @@
 <!-- hero area start -->
 <section class="hero-area" id="home">
-  <input type="text" [formControl]="search" placeholder="Search Movie" />
+  <input type="text" [formControl]="search" placeholder="Search Movie"  id="searchBar"/>
 
   <div class="portfolio-menu">
     <ul>
-      <button routerLink="moviesList">My Movie List</button>
+      <button routerLink="moviesList" id="movieList">My Movie List</button>
     </ul>
   </div>
 
   <ng-container *ngIf="result$ | async as result">
-    <button (click)="addToList(result)">Add to list</button>
+    <!-- <button (click)="addToList(result)">Add to list</button> -->
 
-    <button (click)="showReviewForm = true">Add review</button>
-    <div *ngIf="showReviewForm">
-      <label for="review">Review:</label>
-      <input type="text" name="review" [(ngModel)]="reviewText" />
-      <br />
-      <label for="rating">Rating:</label>
-      <select name="rating" [(ngModel)]="ratingValue">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-      <br />
-      <button (click)="addReview(result)">Add review</button>
-    </div>
-
+    <section id="addReview">
+      <button (click)="showReviewForm = true" *ngIf="!showReviewForm">Add review</button>
+      <div *ngIf="showReviewForm">
+        <label for="review">Review:</label>
+        <input type="text" name="review" [(ngModel)]="reviewText" />
+        <br />
+        <label for="rating">Rating:</label>
+        <select name="rating" [(ngModel)]="ratingValue">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <br />
+        <button (click)="addReview(result)">Add review</button>
+      </div>
+    </section>
     <div class="container">
       <div class="hero-area-slider">
         <div class="row hero-area-slide">
@@ -57,20 +58,24 @@
     </div>
   </ng-container>
 
-  <ng-container *ngIf="currencies$ | async as currency">
-    <p>{{ currency }}</p>
-  </ng-container>
+  <section id="countryDetails">
+    <ng-container *ngIf="currencies$ | async as currency">
+      <p>{{ currency }}</p>
+    </ng-container>
 
-  <ng-container *ngIf="countries$ | async | lowercase as countryCode">
-    <div *ngIf="countryCode | commaSeparatedToArray as codes">
-      <div *ngFor="let item of codes">
-        <img
-          [src]="'https://flagpedia.net/data/flags/icon/36x27/' + item + '.png'"
-          alt=""
-        />
+    <ng-container *ngIf="countries$ | async | lowercase as countryCode">
+      <div *ngIf="countryCode | commaSeparatedToArray as codes">
+        <div *ngFor="let item of codes">
+          <img
+            [src]="
+              'https://flagpedia.net/data/flags/icon/36x27/' + item + '.png'
+            "
+            alt=""
+          />
+        </div>
       </div>
-    </div>
-  </ng-container>
+    </ng-container>
+  </section>
 </section>
 
 <!-- hero area end -->

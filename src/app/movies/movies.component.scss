@@ -4,6 +4,80 @@ input {
   color: white !important;
 }
 
+#searchBar {
+  background: #24262d;
+  width: 40%;
+  margin: 0 auto;
+  padding: 8px 15px;
+  border: none;
+  display: flex;
+  margin-top: 100px;
+}
+
+#movieList {
+  display: flex;
+  margin: 0 auto;
+  background-color: #f44336;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #f34d41;
+  }
+}
+#countryDetails {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  color: black;
+}
+
+#addReview {
+  border-radius: 5px;
+  padding: 10px;
+  margin: 20px 0;
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#addReview label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: goldenrod !important;
+}
+
+#addReview input[type="text"],
+#addReview select {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  background: white;
+  color: black !important;
+}
+
+#addReview button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#addReview button:hover {
+  background-color: #3e8e41;
+}
+
 /*
 Theme Name: Movie Point
 Version: 1.0
@@ -433,7 +507,7 @@ option {
 }
 .hero-area-slide {
   background: #13151f;
-  margin: 320px 15px 50px;
+  margin: 150px 15px 50px;
   padding-top: 52px;
   box-shadow: 0 0 20px #000000;
 }
@@ -453,7 +527,6 @@ option {
 }
 
 .review h4 {
-  padding-left: 25px;
   overflow: hidden;
 }
 

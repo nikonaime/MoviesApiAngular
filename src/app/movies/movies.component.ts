@@ -22,9 +22,8 @@ import { query } from '@angular/animations';
 })
 export class MoviesComponent implements OnInit {
   constructor(
-    private movieService: MovieApiService // private toastr: ToastrService
-  ) // private toastr: ToastrService
-  {}
+    private movieService: MovieApiService // private toastr: ToastrService // private toastr: ToastrService
+  ) {}
   search = new FormControl();
 
   result$: Observable<MovieSearchResponse> | undefined;
@@ -48,10 +47,12 @@ export class MoviesComponent implements OnInit {
   addReview(result: Movie) {
     const review = { text: this.reviewText, rating: Number(this.ratingValue) };
     const updatedResult = { ...result, review };
-    console.log(updatedResult)
-    this.movieService
-      .saveMovie(updatedResult)
-      .subscribe(() => this.showReviewForm = !this.showReviewForm);
+    console.log(updatedResult);
+    this.movieService.saveMovie(updatedResult).subscribe(() => {
+      this.showReviewForm = !this.showReviewForm;
+      this.reviewText = '';
+      this.ratingValue = undefined;
+    });
   }
 
   ngOnInit(): void {
