@@ -1,5 +1,4 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { MovieApiService } from '../movie-api.service';
 import { Movie } from '../movies.model';
@@ -29,7 +28,6 @@ export class MoviesListComponent implements OnInit {
     this.selectedMovieId = id;
   }
 
-
   edit(movie: any) {
     console.log(movie);
     const value = this.input?.nativeElement.value;
@@ -39,7 +37,7 @@ export class MoviesListComponent implements OnInit {
     // movie.review.text = valueReview;
     // movie.review.rating = valueReview;
     this.apiService
-      .editMovie(movie.id, { ...movie, value,valueReview })
+      .editMovie(movie.id, { ...movie, value, valueReview })
       .subscribe(
         () => (this.movieList$ = this.apiService.getSavedMovieList()),
         (this.selectedMovieId = undefined)

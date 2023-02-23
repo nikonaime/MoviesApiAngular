@@ -12,7 +12,6 @@ import {
 import { MovieSearchResponse, Movie } from '../movies.model';
 import { MovieApiService } from '../movie-api.service';
 import { HttpErrorResponse } from '@angular/common/http';
-import { ToastrService } from 'ngx-toastr';
 import { query } from '@angular/animations';
 
 @Component({
@@ -21,9 +20,7 @@ import { query } from '@angular/animations';
   styleUrls: ['./movies.component.scss'],
 })
 export class MoviesComponent implements OnInit {
-  constructor(
-    private movieService: MovieApiService // private toastr: ToastrService // private toastr: ToastrService
-  ) {}
+  constructor(private movieService: MovieApiService) {}
   search = new FormControl();
 
   result$: Observable<MovieSearchResponse> | undefined;
