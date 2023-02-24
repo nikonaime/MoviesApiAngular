@@ -1,0 +1,123 @@
+<form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input
+      type="text"
+      id="name"
+      formControlName="name"
+      (input)="checkDuplicateName()"
+    />
+    <div *ngIf="movieForm.controls['name'].errors">
+      <div *ngIf="movieForm.controls['name'].errors['required']">
+        Name is required
+      </div>
+      <div *ngIf="movieForm.controls['name'].errors['minlength']">
+        Name must be at least 3 characters long
+      </div>
+      <div *ngIf="movieForm.controls['name'].errors['maxlength']">
+        Name must be no more than 20 characters long
+      </div>
+      <div *ngIf="movieForm.controls['name'].errors['duplicateName']">
+        Movie with name '{{ movieForm.controls["name"].value }}' already exists
+      </div>
+    </div>
+  </div>
+
+  <div formArrayName="countries">
+    <div *ngFor="let country of countryControls; let i = index">
+      <div [formGroupName]="i">
+        <label>Country {{ i + 1 }}</label>
+        <select formControlName="country">
+          <option *ngFor="let c of countries" [value]="c.name.common">
+            {{ c.name.common }}
+          </option>
+        </select>
+        <button *ngIf="i === 0" (click)="addCountry()">+</button>
+        <button *ngIf="i > 0" (click)="removeCountry(i)">-</button>
+      </div>
+    </div>
+  </div>
+
+  <label> premier event place</label>
+  <input type="text" formControlName="premierEventPlace" />
+
+  <label for="releaseDate">Release Date:</label>
+  <input type="date" formControlName="releaseDate" id="releaseDate" />
+  <div *ngIf="movieForm.get('releaseDate')?.hasError('required')">
+    Release date is required.
+  </div>
+  <div *ngIf="movieForm.get('releaseDate')?.hasError('pastDate')">
+    Release date must be in the future.
+  </div>
+
+  <label>genre</label>
+  <div *ngFor="let genre of genres">
+    <label>
+      <input type="checkbox" [value]="genre" formControlName="selectedGenres" />
+      {{ genre }}
+    </label>
+  </div>
+  <div
+    *ngIf="
+      movieForm.get('selectedGenres')?.invalid &&
+      movieForm.get('selectedGenres')?.touched
+    "
+  >
+    <div
+      class="error"
+      *ngIf="movieForm.get('selectedGenres')?.hasError('required')"
+    >
+      Please select at least one genre.
+    </div>
+    <div
+      class="error"
+      *ngIf="movieForm.get('selectedGenres')?.hasError('noSelection')"
+    >
+      Please select at least one genre.
+    </div>
+  </div>
+
+  <div>
+    <label>
+      <input
+        type="radio"
+        name="category"
+        value="movie"
+        formControlName="category"
+      />
+      Movie
+    </label>
+
+    <label>
+      <input
+        type="radio"
+        name="category"
+        value="tv-show"
+        formControlName="category"
+      />
+      Movie
+    </label>
+  </div>
+  <div *ngIf="movieForm.get('category')?.value === 'movie'">
+    <label>
+      Minutes:
+      <input type="number" formControlName="numberField" />
+    </label>
+    <div
+      *ngIf="
+        movieForm.get('numberField')?.hasError('rangeError') &&
+        movieForm.get('numberField')?.dirty
+      "
+    >
+      Minutes should be more than 60 and less than 190.
+    </div>
+  </div>
+  <div *ngIf="movieForm.get('category')?.value === 'tv-show'">
+    <label>
+      Number of series:
+      <input type="number" formControlName="number" />
+    </label>
+  </div>
+
+  <button type="submit" [disabled]="movieForm.invalid">Add Movie</button>
+</form>

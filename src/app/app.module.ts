@@ -14,6 +14,7 @@ import { YearAgoPipe } from './year-ago.pipe';
 import { CommaSeparatedToArrayPipe } from './comma-separated-to-array.pipe';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { StarRatingPipe } from './star-rating.pipe';
+import { AddMyMovieComponent } from './add-my-movie/add-my-movie.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { StarRatingPipe } from './star-rating.pipe';
     CommaSeparatedToArrayPipe,
     MoviesListComponent,
     StarRatingPipe,
+    AddMyMovieComponent,
   ],
   imports: [
     BrowserModule,
