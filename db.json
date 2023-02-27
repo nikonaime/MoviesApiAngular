@@ -1,0 +1,141 @@
+{
+  "myMovies": [
+    {
+      "data": {
+        "name": "bazera3",
+        "countries": [
+          {
+            "country": "Indonesia"
+          }
+        ],
+        "premierEventPlace": "bratuxa",
+        "releaseDate": "2033-12-12"
+      },
+      "id": 1
+    },
+    {
+      "data": {
+        "name": "bazera 5",
+        "countries": [
+          {
+            "country": "Japan"
+          }
+        ],
+        "premierEventPlace": "bla bla",
+        "releaseDate": "2023-03-02"
+      },
+      "id": 2
+    },
+    {
+      "data": {
+        "name": "bazera 7",
+        "countries": [
+          {
+            "country": "Belize"
+          }
+        ],
+        "releaseDate": "2023-03-29"
+      },
+      "id": 3
+    },
+    {
+      "data": {
+        "name": "bazera 4",
+        "countries": [
+          {
+            "country": "Japan"
+          },
+          {
+            "country": "Brazil"
+          }
+        ],
+        "premierEventPlace": "",
+        "releaseDate": "2023-02-28",
+        "selectedGenres": true,
+        "category": "movie",
+        "numberField": 120,
+        "number": null
+      },
+      "id": 4
+    }
+  ],
+  "movies": [
+    {
+      "Title": "Khareba da Gogia",
+      "Year": "1987",
+      "Rated": "N/A",
+      "Released": "27 Dec 1987",
+      "Runtime": "143 min",
+      "Genre": "Adventure, Drama",
+      "Director": "Giorgi Shengelaia",
+      "Writer": "Baadur Balarjishvili, Giorgi Shengelaia",
+      "Actors": "Omar Pkhakadze, Levan Tedaishvili, Mikheil Saladze",
+      "Plot": "This film tells the story fighters who are fighting against the feudal order in Georgia.",
+      "Language": "Georgian, Russian",
+      "Country": "Soviet Union",
+      "Awards": "N/A",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMDVjNzA1NTAtZjdiYS00NDUzLThjZDktZThkYzBmMzkyNmZlXkEyXkFqcGdeQXVyMzU0NzkwMDg@._V1_SX300.jpg",
+      "Ratings": [
+        {
+          "Source": "Internet Movie Database",
+          "Value": "7.7/10"
+        }
+      ],
+      "Metascore": "N/A",
+      "imdbRating": "7.7",
+      "imdbVotes": "225",
+      "imdbID": "tt0174816",
+      "Type": "movie",
+      "DVD": "N/A",
+      "BoxOffice": "N/A",
+      "Production": "N/A",
+      "Website": "N/A",
+      "Response": "True",
+      "review": {
+        "text": "nice",
+        "rating": 4
+      },
+      "id": 2
+    },
+    {
+      "Title": "Sherekilebi",
+      "Year": "1974",
+      "Rated": "N/A",
+      "Released": "N/A",
+      "Runtime": "80 min",
+      "Genre": "Comedy, Musical",
+      "Director": "Eldar Shengelaia",
+      "Writer": "Revaz Gabriadze",
+      "Actors": "Vasili Chkhaidze, Dato Jgenti, Ariadna Shengelaia",
+      "Plot": "In the pursuit of happiness orphan Ertaoz left for city, where he fell in love with pretty Margalita and went to jail to save her. There he met his future teacher Qristepore who dreamed of building flying machine and they broke th...",
+      "Language": "Georgian, Russian",
+      "Country": "Soviet Union",
+      "Awards": "N/A",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BY2Y5YTlkOTEtMTA4NC00YzU5LThiMzItMmM5NGM2ZGQ5NjliXkEyXkFqcGdeQXVyNzg5OTk2OA@@._V1_SX300.jpg",
+      "Ratings": [
+        {
+          "Source": "Internet Movie Database",
+          "Value": "8.8/10"
+        }
+      ],
+      "Metascore": "N/A",
+      "imdbRating": "8.8",
+      "imdbVotes": "1,150",
+      "imdbID": "tt0175157",
+      "Type": "movie",
+      "DVD": "N/A",
+      "BoxOffice": "N/A",
+      "Production": "N/A",
+      "Website": "N/A",
+      "Response": "True",
+      "review": {
+        "text": "best one",
+        "rating": 5
+      },
+      "id": 3
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

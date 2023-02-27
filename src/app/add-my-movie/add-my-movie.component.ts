@@ -61,7 +61,7 @@ export class AddMyMovieComponent implements OnInit {
   }
 
   loadMovies() {
-    this.http.get<any[]>('http://localhost:3000/movies').subscribe((data) => {
+    this.http.get<any[]>('http://localhost:3000/myMovies').subscribe((data) => {
       this.movies = data;
     });
   }
@@ -86,7 +86,7 @@ export class AddMyMovieComponent implements OnInit {
     }
 
     this.http
-      .post('http://localhost:3000/movies', { data })
+      .post('http://localhost:3000/myMovies', { data })
       .subscribe((data) => {
         console.log(data);
         this.movies.push(data);
